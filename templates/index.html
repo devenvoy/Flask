@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title></title>
+<title>Task Manager</title>
 {% endblock %}
 
 {% block body %}
 <center>
     <h1 class="text-white py-2 px-3 bg-dark bg-gradient text-uppercase text-center shadow-sm rounded">Task Manager</h1>
+    
     <div class="container mt-5">
+
+        {% if tasks|length < 1 %}
+        <h4>There are no tasks created , Create or Add new Task from Below</h4>
+        {% else %}
         <div class="table-responsive">
             <table class="table table-bordered border-dark table-hover text-center text-capitalize shadow-sm">
                 <thead class="table-dark table-active text-uppercase text-white">
@@ -18,17 +23,34 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for task in tasks %}
                     <tr>
-                        <td class="p-3">Sample Task</td>
-                        <td class="p-3">Date Added</td>
+                        <td class="p-3">{{ task.content }}</td>
+                        <td class="p-3">{{ task.date_created.date() }}</td>
                         <td class="p-3">
-                            <a href="#" class="btn btn-danger btn-sm mx-1">Delete</a>
-                            <a href="#" class="btn btn-primary btn-sm mx-1">Update</a>
+                            <a href="/delete/{{ task.id }}" class="btn btn-danger btn-sm mx-1">Delete</a>
+                            <a href="/update/{{ task.id}}" class="btn btn-primary btn-sm mx-1">Update</a>
                         </td>
                     </tr>
-                    <!-- Additional task rows can go here -->
+                    {% endfor %}
                 </tbody>
             </table>
+        </div>
+        {% endif %}
+       
+
+        <div>
+            <form action="/" method="post">
+                <table style="table-layout: fixed;">
+                    <tr>
+                        <td style="vertical-align: middle;"><label for="content">Enter Task</label></td>
+                        <td style="vertical-align: middle;" >
+                            <input type="text" name="content" class="form-control" placeholder="Enter Task">
+                        </td>
+                    </tr>
+                </table>
+                <input type="submit" class="btn btn-primary btn-lg mt-3" value="Add Task">
+            </form>
         </div>
     </div>
     

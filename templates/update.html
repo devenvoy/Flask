@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Update</title>
+{% endblock %}
+
+{% block body %}
+<center>
+    <h1 class="text-white py-2 px-3 bg-dark bg-gradient text-uppercase text-center shadow-sm rounded">Update Task</h1>
+
+    <div>
+        <form action="/update/{{ task.id}}" method="post">
+            <table style="table-layout: fixed;">
+                <tr>
+                    <td style="vertical-align: middle;"><label for="content">Enter Task</label></td>
+                    <td style="vertical-align: middle;">
+                        <input type="text" name="content" value="{{ task.content }}" class="form-control"
+                            placeholder="Enter Task">
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" class="btn btn-primary btn-lg mt-3" value="Update Task">
+        </form>
+    </div>
+    </div>
+
+</center>
+{% endblock %}
