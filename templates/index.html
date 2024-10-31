@@ -6,6 +6,31 @@
 
 {% block body %}
 <center>
-    <h2>Hello world</h2>
+    <h1 class="text-white py-2 px-3 bg-dark bg-gradient text-uppercase text-center shadow-sm rounded">Task Manager</h1>
+    <div class="container mt-5">
+        <div class="table-responsive">
+            <table class="table table-bordered border-dark table-hover text-center text-capitalize shadow-sm">
+                <thead class="table-dark table-active text-uppercase text-white">
+                    <tr>
+                        <th>Task</th>
+                        <th>Added</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-3">Sample Task</td>
+                        <td class="p-3">Date Added</td>
+                        <td class="p-3">
+                            <a href="#" class="btn btn-danger btn-sm mx-1">Delete</a>
+                            <a href="#" class="btn btn-primary btn-sm mx-1">Update</a>
+                        </td>
+                    </tr>
+                    <!-- Additional task rows can go here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
 </center>
 {% endblock %}
