@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- {{ '' }} mainy used for strings -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.css') }}">
+
+    <!-- jinja2 syntax template -->
+     <!-- {% block tag %} {% endblock %} mainly used for code block like loop , function etc.. --> 
+     {% block head %}{% endblock %}
+
+</head>
+<body>
+    {% block body %}{% endblock %}
+</body>
+</html> ̰
